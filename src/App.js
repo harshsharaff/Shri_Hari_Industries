@@ -1,32 +1,32 @@
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Home from './pages/Home';
+import About from './pages/About';
+import Products from './pages/Products';
+import Machinery from './pages/Machinery';
+import Clients from './pages/Clients';
+import Quality from './pages/Quality';
+import Sustainability from './pages/Sustainability';
+import Contact from './pages/Contact';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Welcome to Shri Hari Industries</h1>
-        <p>Your trusted partner in industrial solutions.</p>
-        <a
-          className="App-link"
-          href="#contact"
-        >
-          Contact Us
-        </a>
-      </header>
-
-      <section className="App-about">
-        <h2>About Us</h2>
-        <p>
-          Shri Hari Industries specializes in delivering high-quality industrial components and engineering services. Our mission is to bring precision and reliability to every project we touch.
-        </p>
-      </section>
-
-      <section className="App-contact" id="contact">
-        <h2>Contact</h2>
-        <p>Email: info@shrihariindustries.com</p>
-        <p>Phone: +91-12345-67890</p>
-      </section>
-    </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/machinery" element={<Machinery />} />
+        <Route path="/clients" element={<Clients />} />
+        <Route path="/quality" element={<Quality />} />
+        <Route path="/sustainability" element={<Sustainability />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
 
